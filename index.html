@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Birthday Hunt ❤️</title>
+  <style>
+    body {
+      font-family: Arial;
+      background: linear-gradient(to right, #fbecec, #e8d9ff);
+      text-align: center;
+      padding: 50px;
+    }
+.box {
+  background: white;
+  padding: 25px;
+  border-radius: 15px;
+  width: 340px;
+  margin: auto;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  background: #ff7aa2;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+input {
+  padding: 10px;
+  margin-top: 10px;
+  width: 80%;
+}
+ </style>
+</head>
+<body>
+<div class="box" id="content">
+  <h2>Hey Birthday Girl 🎂</h2>
+  <p>Your little adventure begins now...</p>
+  <button onclick="nextStage()">Start</button>
+</div>
+<script>
+let stage = 0;
+
+function nextStage() {
+  stage++;
+
+  if(stage === 1){
+    document.getElementById("content").innerHTML = `
+      <h3>Stage 1 🔑</h3>
+      <p>You’ve unlocked the room… but can you unlock the next clue?</p>
+      <p>Think of where you keep everthingg, like EVERYTHINGGG 👀</p>
+      <input id="ans" placeholder="Type answer here"><br>
+      <button onclick="check('drawer')">Submit</button>
+      <p id="msg"></p>
+    `;
+  }
+
+  else if(stage === 2){
+    document.getElementById("content").innerHTML = `
+      <h3>Stage 2 📦</h3>
+      <p>Not bad… now go where "It has a head but no hair, and your goto place" 😌</p>
+      <input id="ans"><br>
+      <button onclick="check('bed')">Submit</button>
+      <p id="msg"></p>
+    `;
+  }
+
+  else if(stage === 3){
+    document.getElementById("content").innerHTML = `
+      <h3>Stage 3 🌙</h3>
+      <p>You see the stars and the wind from here yet no actual stars are seen</p>
+      <input id="ans"><br>
+      <button onclick="check('window')">Submit</button>
+      <p id="msg"></p>
+    `;
+  }
+
+  else if(stage === 4){
+    document.getElementById("content").innerHTML = `
+      <h3>Stage 4 👗</h3>
+      <p>Somewhere you can hang things or keep it as it is and it gets messy all the time ✨</p>
+      <input id="ans"><br>
+      <button onclick="check('closet')">Submit</button>
+      <p id="msg"></p>
+    `;
+  }
+
+  else if(stage === 5){
+    document.getElementById("content").innerHTML = `
+      <h3>Final Step 🎁</h3>
+      <p>Look up… your surprise is waiting for you ❤️</p>
+      <h2>Happy Birthday Bestie 💖</h2>
+    `;
+  }
+}
+
+function check(correct){
+  let input = document.getElementById("ans").value.toLowerCase();
+
+  if(input === correct){
+    nextStage();
+  } else {
+    document.getElementById("msg").innerText = "Wrong 😏 Try again";
+  }
+}
+</script>
+</body>
+</html>
+:::
